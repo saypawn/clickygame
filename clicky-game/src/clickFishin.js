@@ -30,4 +30,29 @@ const Localhost = Boolean(
         }
       });
     }
+  } 
+  function registerValidCF(cfUrl) {
+    navigator.clickfishin
+      .register(cfUrl)
+      .then(registration => {
+        registration.onupdatefound = () => {
+          const installingFishin = registration.installing;
+          installingFishin.onstatechange = () => {
+            if (installingFishin.state === "installed") {
+              if (navigator.clickfishin.controller) {
+                // It's the perfect time to display a "New content is
+                // available; please refresh." message in your web app.
+                console.log("New content is available; please refresh.");
+              } else {
+                
+                // "Content is cached for offline use." message.
+                console.log("Content is cached for offline use.");
+              }
+            }
+          };
+        };
+      })
+      .catch(error => {
+        console.error("Error during service worker registration:", error);
+      });
   }

@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import "./index.css";
-import registerServiceWorker from "./registerServiceWorker";
+import clickFishin from "./clickFishin";
 
 ReactDOM.render(<App />, document.getElementById("root"));
-registerServiceWorker();
+clickFishin();
